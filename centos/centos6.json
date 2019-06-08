@@ -1,0 +1,8 @@
+{
+    "iso_url": "http://mirror.sax.uk.as61049.net/centos/6.10/isos/x86_64/CentOS-6.10-x86_64-minimal.iso",
+    "iso_checksum_type": "sha256",
+    "iso_checksum": "7c0dee2a0494dabd84809b72ddb4b761f9ef92b78a506aef709b531c54d30770",
+    "kickstart_location": "centos/files/http/centos6",
+    "box_name": "centos6",
+    "version": "1.0.0"
+}

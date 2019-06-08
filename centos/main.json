@@ -1,0 +1,36 @@
+{
+"variables": {
+    "version": "1.0.0"
+      },
+"builders": [
+{
+    "type": "virtualbox-iso",
+    "guest_os_type": "RedHat_64",
+    "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/kickstart.cfg<enter><wait>"
+      ],
+    "http_directory": "{{user `kickstart_location`}}",
+    "boot_wait": "10s",
+    "iso_url": "{{user `iso_url`}}",
+    "iso_checksum": "{{user `iso_checksum`}}",
+    "iso_checksum_type": "{{user `iso_checksum_type`}}",
+    "ssh_username": "vagrant",
+    "ssh_password": "vagrant",
+    "ssh_wait_timeout": "10000s",
+    "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now"
+  }
+],
+"post-processors": [
+    [
+      {
+        "output": "builds/{{user `box_name`}}-{{user `version`}}.box",
+        "type": "vagrant"
+      },
+      {
+        "checksum_types": "sha512",
+        "output": "builds/{{user `box_name`}}-{{user `version`}}-{{.ChecksumType}}.checksum",
+        "type": "checksum"
+      }
+    ]
+  ]
+}
