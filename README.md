@@ -12,3 +12,9 @@ packer build --var-file=centos/centos6.json centos/main.json
 ```
 packer build --var-file=centos/centos7.json centos/main.json
 ```
+
+## Centos 8
+
+```
+packer build --var-file=centos/centos8.json centos/main.json
+```
